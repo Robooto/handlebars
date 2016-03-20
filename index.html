@@ -52,12 +52,7 @@
             </div>
             <div id="theDogs"></div>
             <div id="pagination">
-                <ul>
-                    <li><a href="index.html">1</a></li>
-                    <li><a href="page2.html">2</a></li>
-                    <li><a href="page3.html">3</a></li>
-                    <li><a href="page4.html">4</a></li>
-                </ul>
+                
             </div>
             <footer class="mdl-mega-footer">
                 <div class="mdl-mega-footer--top-section">
@@ -94,6 +89,13 @@
                 {{/if}}
             {{/if}}
         </div>
+    </script>
+    <script type="text/x-handlebars-template" id="page-template">
+        <ul>
+            {{#each (generatePages dogs)}}
+                <li><a href="{{link}}">{{number}}</a></li>
+            {{/each}}
+        </ul>
     </script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/handlebars/handlebars.min.js"></script>
