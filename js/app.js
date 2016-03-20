@@ -1,6 +1,12 @@
 (function() {
+    
+    registerPartials();
     renderPage();
     renderDogs();
+    
+    function registerPartials() {
+        Handlebars.registerPartial('dog', $('#dog-template').html());
+    }
     
     function renderPage() {
         var template = $('#index-template').html();
