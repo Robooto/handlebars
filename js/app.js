@@ -17,5 +17,20 @@
         var compiled = Handlebars.compile(template);
         var rendered = compiled({dogs: DogPack.dogs, language: window.language});
         $('#theDogs').html(rendered);
+        attachDogButtons();
+    }
+    
+    function attachDogButtons() {
+        $('.dog-button').click(function() {
+            var id = $(this).closest('.dog-card').data('dog-id');
+            DogPack.chooseDog(id);
+            renderDogs();
+        });
+        
+        $('.not-dog-button').click(function() {
+            var id = $(this).closest('.dog-card').data('dog-id');
+            DogPack.chooseNotDog(id);
+            renderDogs();
+        });
     }
 })();

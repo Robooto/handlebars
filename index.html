@@ -80,7 +80,16 @@
                         {{@root.language.nope}}
                     </button>
                 </div>
+                {{#if chosen}}
+                    {{#if isCorrect}}
+                        <span class="result-good">{{@root.language.correctInd}}</span>
+                    {{else}}
+                        <span class="result-bad">{{@root.language.incorrectInd}}</span>
+                    {{/if}}
+                {{/if}}
             </div>
+        {{else}}
+            {{language.noDogsMessage}}
         {{/each}}
     </script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
