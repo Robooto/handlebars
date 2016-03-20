@@ -1,17 +1,17 @@
 (function() {
     
-    registerPartials();
+    //registerPartials();
     renderPage();
     renderDogs();
     
-    function registerPartials() {
-        Handlebars.registerPartial('dog', $('#dog-template').html());
-    }
+    // function registerPartials() {
+    //     Handlebars.registerPartial('dog', $('#dog-template').html());
+    // }
     
     function renderPage() {
-        var template = $('#index-template').html();
-        var compiled = Handlebars.compile(template);
-        var rendered = compiled(window.language);
+        // var template = $('#index-template').html();
+        // var compiled = Handlebars.compile(template);
+        var rendered = App.templates.index(window.language);
         $('#main').html(rendered);
         $('#languageSwitch').click(function() {
             DogPack.switchLanguage();
@@ -19,10 +19,10 @@
     }
     
     function renderDogs() {
-        var template = $('#dogs-template').html();
-        var compiled = Handlebars.compile(template);
+        // var template = $('#dogs-template').html();
+        // var compiled = Handlebars.compile(template);
         var filteredDogs = DogPack.getFilteredDogs(DogPack.dogs);
-        var rendered = compiled({
+        var rendered = App.templates.dogs({
             dogs: DogPack.getPaginatedDogs(filteredDogs), 
             language: window.language});
         $('#theDogs').html(rendered);
@@ -32,9 +32,9 @@
     }
     
     function renderScore() {
-        var template = $('#score-template').html();
-        var compiled = Handlebars.compile(template);
-        var rendered = compiled({
+        // var template = $('#score-template').html();
+        // var compiled = Handlebars.compile(template);
+        var rendered = App.templates.score({
             dogs: DogPack.dogs,
             language: window.language
         });
@@ -47,9 +47,9 @@
     }
     
     function renderPages(dogs) {
-        var template = $('#page-template').html();
-        var compiled = Handlebars.compile(template);
-        var rendered = compiled({dogs: dogs});
+        // var template = $('#page-template').html();
+        // var compiled = Handlebars.compile(template);
+        var rendered = App.templates.page({dogs: dogs});
         $('#pagination').html(rendered);
     }
     
