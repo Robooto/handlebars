@@ -16,6 +16,11 @@
         $('#languageSwitch').click(function() {
             DogPack.switchLanguage();
         });
+        
+        $('#score').find('small').click(function() {
+            DogPack.clearDogs();
+            window.location.href = '?' + Handlebars.helpers.getLanguageFilter(window.language.langId);
+        })
     }
     
     function renderDogs() {
